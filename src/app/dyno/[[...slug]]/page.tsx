@@ -6,7 +6,7 @@ builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 export default async function Page(){
 
     return (
-        <h1>Hello World how are you!!</h1>
+        <h1>Should be dyno</h1>
     );
 
 }
