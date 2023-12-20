@@ -1,19 +1,12 @@
-import {builder, BuilderContent} from "@builder.io/sdk"
+import {builder} from "@builder.io/sdk"
 import { RenderBuilderContent } from "../../components/builder";
 
 // Builder Public API Key set in .env file
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
-
-// console.log('outside')
-// export default async function Page(){
-//     console.log('inside')
-//     return (
-//         <h1>Should be root</h1>
-//     );
-//
-// }
-
+// export const dynamicParams = false;
+// const dynamic = 'force-dynamic'
+// const revalidate = 0
 
 interface PageProps {
     params: {
@@ -26,13 +19,19 @@ export default async function Page(props: PageProps) {
 
   console.log('inside the page');
 
+  const urlPath = "/" + (props?.params?.slug?.join("/") || "");
+  console.log({urlPath});
+
     const content = await builder
       // Get the page content from Builder with the specified options
       .get("page", {
-          userAttributes: {
-              // Use the page path specified in the URL to fetch the content
-              urlPath: "/" + (props?.params?.slug?.join("/") || ""),
-          },
+        options: {
+          includeUnpublished: true
+        },
+        userAttributes: {
+          // Use the page path specified in the URL to fetch the content
+          urlPath,
+        },
       })
       // Convert the result to a promise
       .toPromise();
