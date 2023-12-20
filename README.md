@@ -1,7 +1,8 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
-In the root folder of this project, run npm install.
+1. In the root folder of this project, run npm install.
+2. copy .env_example to .env
 
 
 First, run the development server:
