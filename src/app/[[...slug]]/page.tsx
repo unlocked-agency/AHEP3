@@ -14,10 +14,10 @@ interface PageProps {
     };
 }
 
-console.log('outside the page');
+// console.log('outside the page');
 export default async function Page(props: PageProps) {
 
-  console.log('inside the page');
+  // console.log('inside the page');
 
   const urlPath = "/" + (props?.params?.slug?.join("/") || "");
   console.log({urlPath});
